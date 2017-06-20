@@ -1,5 +1,7 @@
 package com.xm.simple.bean;
 
+import java.util.List;
+
 /**
  * Created by Administrator on 2017/6/12.
  */
@@ -23,7 +25,7 @@ public class BriefListBean {
     private String logo_url;
     private String name;
     private String total;
-    private String url;
+    private List<String> url;
     private String is_promote;
     private String large_logo_url;
     private String category_id;
@@ -69,13 +71,6 @@ public class BriefListBean {
         this.total = total;
     }
 
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
 
     public String getIs_promote() {
         return is_promote;

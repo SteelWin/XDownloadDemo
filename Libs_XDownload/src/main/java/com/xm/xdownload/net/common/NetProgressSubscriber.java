@@ -12,6 +12,7 @@ import com.xm.xdownload.net.NetDialogConfig;
 import com.xm.xdownload.net.buffer.BufferDbUtil;
 import com.xm.xdownload.net.buffer.BufferResulte;
 import com.xm.xdownload.utils.NetworkUtil;
+import com.xm.xdownload.utils.UnifiedErrorUtil;
 import com.xm.xdownload.widget.CustomProgress;
 
 import io.reactivex.Observer;
@@ -122,12 +123,18 @@ public class NetProgressSubscriber<T> implements Observer<T> {
 
     }
 
+    /**
+     * 错误处理
+     * @param e
+     */
     @Override
     public void onError(Throwable e) {
-        mSubscriberOnNextListener.onError(e);
+        Throwable throwable = UnifiedErrorUtil.unifiedError(e);  //人性化提示语句,统一错误处理.
+        mSubscriberOnNextListener.onError(throwable);
         dismissProgressDialog();
         gc();
     }
+
 
     @Override
     public void onComplete() {
@@ -136,6 +143,8 @@ public class NetProgressSubscriber<T> implements Observer<T> {
         dismissProgressDialog();
         gc();
     }
+
+
 
     /** 线程异常，或者成功后，调用回收 */
     private void gc(){

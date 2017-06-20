@@ -9,6 +9,7 @@ import com.xm.xdownload.net.buffer.DownInfoDbUtil;
 import com.xm.xdownload.net.download.HttpDownService;
 import com.xm.xdownload.utils.NetworkUtil;
 import com.xm.xdownload.utils.ToastUtils;
+import com.xm.xdownload.utils.UnifiedErrorUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -300,6 +301,8 @@ public class RetrofitClient {
             BufferDbUtil.init(context,dbName);
             //初始化数据 -> 用户网络缓存
             DownInfoDbUtil.init(context,dbName);
+            //网络异常 统一提示语，初始化 -> 因为里面 要 getResouce
+            UnifiedErrorUtil.init(context);
         }
     }
 

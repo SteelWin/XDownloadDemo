@@ -16,12 +16,12 @@
         "source": "C:\\Users\\Administrator\\.android\\build-cache\\9371e9520418f19fc4edc703de3a9580007a01f4\\output\\res\\drawable\\notification_bg.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\Desktop\\git\\XDownloadDemo\\Libs_SwipeBackLayout\\build\\intermediates\\res\\merged\\release\\drawable\\abc_dialog_material_background.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\9371e9520418f19fc4edc703de3a9580007a01f4\\output\\res\\drawable\\abc_dialog_material_background.xml"
-    },
-    {
         "merged": "C:\\Users\\Administrator\\Desktop\\git\\XDownloadDemo\\Libs_SwipeBackLayout\\build\\intermediates\\res\\merged\\release\\drawable\\abc_ratingbar_small_material.xml",
         "source": "C:\\Users\\Administrator\\.android\\build-cache\\9371e9520418f19fc4edc703de3a9580007a01f4\\output\\res\\drawable\\abc_ratingbar_small_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\Desktop\\git\\XDownloadDemo\\Libs_SwipeBackLayout\\build\\intermediates\\res\\merged\\release\\drawable\\abc_dialog_material_background.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\9371e9520418f19fc4edc703de3a9580007a01f4\\output\\res\\drawable\\abc_dialog_material_background.xml"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\git\\XDownloadDemo\\Libs_SwipeBackLayout\\build\\intermediates\\res\\merged\\release\\drawable\\abc_cab_background_internal_bg.xml",

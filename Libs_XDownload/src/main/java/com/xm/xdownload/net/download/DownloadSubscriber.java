@@ -3,6 +3,7 @@ package com.xm.xdownload.net.download;
 import com.xm.xdownload.net.buffer.DownInfo;
 import com.xm.xdownload.net.buffer.DownState;
 import com.xm.xdownload.net.common.RetrofitClient;
+import com.xm.xdownload.utils.UnifiedErrorUtil;
 
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
@@ -40,7 +41,8 @@ public class DownloadSubscriber<T> implements Observer<T> {
 
     @Override
     public void onError(Throwable e) {
-        RetrofitClient.log("updateDownloadState -> onError");
+        Throwable throwable = UnifiedErrorUtil.unifiedError(e);
+        RetrofitClient.log("updateDownloadState -> onError：" + throwable.getMessage());
         mDownResultListenner.updateState(mDownInfo,DownState.ERROR);
     }
 
