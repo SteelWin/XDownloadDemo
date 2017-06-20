@@ -3,11 +3,12 @@ XDownload介绍
 本库封装基于Okhttp3,Retrofit2,RxJava2.0,Greendao3.2
 ps : 当然当然，都封装好了，你也可以无视
 
-2017/06/20
-
-新增统一错误处理，感觉网友提议
-已增加类 UnifiedErrorUtil  更人性化异常
 ----------
+#2017/06/20 更新公告
+> 新增统一错误处理，感觉网友提议
+> 已增加类 UnifiedErrorUtil  更人性化异常
+> compile 'com.github.2745329043:XDownloadLibrary:1.0.7'
+
 
 #GitHub地址
 > 如果你觉得好用，对你有帮助，请给个star
@@ -35,7 +36,7 @@ ps : 当然当然，都封装好了，你也可以无视
 # 如何使用
 
 在当前工程中引入
-compile 'com.github.2745329043:XDownloadLibrary:1.0.6'
+compile 'com.github.2745329043:XDownloadLibrary:1.0.7'
 
 最好直接参考demo
 https://github.com/2745329043/XDownloadDemo
