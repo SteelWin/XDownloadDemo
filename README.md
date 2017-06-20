@@ -7,7 +7,8 @@ ps : 当然当然，都封装好了，你也可以无视
 #2017/06/20 更新公告
 > 新增统一错误处理，感觉网友提议
 > 已增加类 UnifiedErrorUtil  更人性化异常
-> compile 'com.github.2745329043:XDownloadLibrary:1.0.7'
+> 已增加 自定义头部参数
+> compile 'com.github.2745329043:XDownloadLibrary:1.0.8'
 
 
 #GitHub地址
