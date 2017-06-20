@@ -63,6 +63,12 @@ public class RequestFragment extends BaseFragment<FragmentRequestBinding> {
                                 e.printStackTrace();
                             }
                         }
+
+                        @Override
+                        public void onError(Throwable e) {
+//                            super.onError(e);     toast方法，这里我们要就输出，不要就自己拿去解析，已汉化
+                            //可写可不写，  异常提示 。默认toast
+                        }
                     }));
         }
 
