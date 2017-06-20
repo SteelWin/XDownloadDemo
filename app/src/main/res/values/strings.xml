@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">盛世音乐</string>
+    <string name="app_name">XDownloadDemo</string>
     <!-- 倒计时 -->
     <string name="welcom_count_timer">%d 跳过</string>
     <string name="open">打开</string>
