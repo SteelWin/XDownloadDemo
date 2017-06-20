@@ -38,7 +38,7 @@ ps : 当然当然，都封装好了，你也可以无视
 # 如何使用
 
 在当前工程中引入
-compile 'com.github.2745329043:XDownloadLibrary:1.0.7'
+compile 'com.github.2745329043:XDownloadLibrary:1.0.8'
 
 最好直接参考demo
 https://github.com/2745329043/XDownloadDemo
