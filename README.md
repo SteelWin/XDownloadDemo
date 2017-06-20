@@ -3,6 +3,10 @@ XDownload介绍
 本库封装基于Okhttp3,Retrofit2,RxJava2.0,Greendao3.2
 ps : 当然当然，都封装好了，你也可以无视
 
+2017/06/20
+
+新增统一错误处理，感觉网友提议
+已增加类 UnifiedErrorUtil  更人性化异常
 ----------
 
 #GitHub地址
