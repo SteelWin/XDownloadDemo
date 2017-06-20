@@ -6,10 +6,8 @@ import android.view.View;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.xm.simple.base.BaseFragment;
-import com.xm.xdownload.net.common.SimpleNetResponseListener;
-import com.xm.xdownload.utils.ToastUtils;
 import com.xm.simple.R;
+import com.xm.simple.base.BaseFragment;
 import com.xm.simple.bean.BriefListBean;
 import com.xm.simple.databinding.FragmentRequestBinding;
 import com.xm.simple.interfac.HttpService;
@@ -20,6 +18,8 @@ import com.xm.xdownload.net.buffer.BufferDbUtil;
 import com.xm.xdownload.net.common.ApplySchedulers;
 import com.xm.xdownload.net.common.NetProgressSubscriber;
 import com.xm.xdownload.net.common.RetrofitClient;
+import com.xm.xdownload.net.common.SimpleNetResponseListener;
+import com.xm.xdownload.utils.ToastUtils;
 
 import java.io.IOException;
 import java.util.List;
@@ -66,7 +66,7 @@ public class RequestFragment extends BaseFragment<FragmentRequestBinding> {
 
                         @Override
                         public void onError(Throwable e) {
-//                            super.onError(e);     toast方法，这里我们要就输出，不要就自己拿去解析，已汉化
+                            super.onError(e);    // toast方法，这里我们要就输出，不要就自己拿去解析，已汉化
                             //查看 utils里  UnifiedErrorUtil 这个类 做了错误的人性化
                             //e.getMessage()
                             //可写可不写，  异常提示 。默认toast

@@ -6,6 +6,9 @@ import android.support.multidex.MultiDex;
 
 import com.xm.simple.interfac.IConstantPool;
 import com.xm.xdownload.net.common.RetrofitClient;
+import com.xm.xdownload.net.header.NetRequestParamsListener;
+
+import java.util.HashMap;
 
 /**
  * 功能:
@@ -40,6 +43,17 @@ public class App extends Application {
                 .setDownConnectionTime(6)                  //下载连接超时   6秒
                 .setNetBufferTime(60)                      //有网络的情况下缓存  60秒
                 .setNoNetBufferTime(24 * 60 * 60 * 7)      //无网络的时候，缓存
+                /** 头部参数 */
+                .setNetRequestParamsListener(new NetRequestParamsListener() {
+                    @Override
+                    public HashMap<String, String> getHeaderParams() {
+                        //需要请传,不需要返回 null
+//                        return null;
+                        HashMap<String, String> map = new HashMap<>();
+                        map.put("userId","2745329043");
+                        return map;
+                    }
+                })
                 /** 设置完，记得Buid */
                 .build();
     }

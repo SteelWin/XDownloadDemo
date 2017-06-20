@@ -7,6 +7,8 @@ import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import com.xm.xdownload.net.buffer.BufferDbUtil;
 import com.xm.xdownload.net.buffer.DownInfoDbUtil;
 import com.xm.xdownload.net.download.HttpDownService;
+import com.xm.xdownload.net.header.BaseInterceptor;
+import com.xm.xdownload.net.header.NetRequestParamsListener;
 import com.xm.xdownload.utils.NetworkUtil;
 import com.xm.xdownload.utils.ToastUtils;
 import com.xm.xdownload.utils.UnifiedErrorUtil;
@@ -74,7 +76,7 @@ public class RetrofitClient {
      * @return
      */
     private Retrofit crateRetrofit(boolean isDownload) {
-        Log.e("tag", "创建RetrofitClient");
+        RetrofitClient.log("创建RetrofitClient");
         /* 拦截器 ->  */
         Interceptor interceptor = null;
         if (isDownload) {
@@ -93,7 +95,7 @@ public class RetrofitClient {
                 HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor(new HttpLoggingInterceptor.Logger() {
                     @Override
                     public void log(String message) {
-                        Log.d("HttpLog", message);
+                        RetrofitClient.log(message);
                     }
                 });
                 loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
@@ -102,16 +104,21 @@ public class RetrofitClient {
         }
         //初始化OkHttp
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
-        if(interceptor != null){
-            builder.addInterceptor(interceptor);
-        }
         if (isDownload) {
             //下载
             builder.connectTimeout(mBuilder.Down_Connection_Time, TimeUnit.SECONDS);
         } else {
+            //头部
+            if(mBuilder.mNetRequestParamsListener != null){
+                builder.addInterceptor(new BaseInterceptor(mBuilder.mNetRequestParamsListener));
+            }
             //非下载
             builder.readTimeout(mBuilder.Read_Timeout, TimeUnit.SECONDS);
             builder.connectTimeout(mBuilder.Connection_Timeout, TimeUnit.SECONDS);
+        }
+        //http 网络请求，输出日志监听 debug 才会开启
+        if(interceptor != null){
+            builder.addInterceptor(interceptor);
         }
         OkHttpClient client = builder.build();
         //初始化 retrofit
@@ -201,6 +208,8 @@ public class RetrofitClient {
         int Net_Buffer_Time = 60;
         /*无网络的情况下本地缓存时间默认7天*/
         int No_Net_Buffer_Time = 24 * 60 * 60 * 7;
+        /* 头部参数 */
+        NetRequestParamsListener mNetRequestParamsListener;
 
 
         public Builder(Context context) {
@@ -279,6 +288,12 @@ public class RetrofitClient {
         /** 无网络的情况下本地缓存时间默认7天 */
         public Builder setNoNetBufferTime(int no_Net_Buffer_Time) {
             No_Net_Buffer_Time = no_Net_Buffer_Time;
+            return this;
+        }
+
+        /** 配置请求的时候，是否携带 参数，目前只有头部 */
+        public Builder setNetRequestParamsListener(NetRequestParamsListener netRequestParamsListener) {
+            mNetRequestParamsListener = netRequestParamsListener;
             return this;
         }
 
