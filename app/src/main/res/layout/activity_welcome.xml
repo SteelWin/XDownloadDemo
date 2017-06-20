@@ -12,7 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:paddingTop="@dimen/status_bar_height"
         tools:context=".activity.WelcomeActivity"
         android:background="@drawable/welcome">
         <ImageView

@@ -36,8 +36,6 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> implements N
 
     @Override
     public void initView(Bundle savedInstanceState) {
-        /* 禁止右滑显示可退出 */
-        setSwipeBackEnable(false);
         /* 默认显示 首页 */
         switchFragment("网络请求");
         /* 监听事件 */

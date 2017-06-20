@@ -7,12 +7,6 @@
         <item name="colorAccent">@color/default_app_main_color</item>
         <item name="android:windowIsTranslucent">true</item>
     </style>
-    <!-- 状态栏适配 -->
-    <style name="status_bar">
-        <item name="android:layout_height">@dimen/status_bar_height</item>
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:background">@color/default_app_main_color</item>
-    </style>
     <!-- ToolBar菜单样式 -->
     <style name="ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
         <item name="colorControlNormal">@color/white</item>

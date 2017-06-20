@@ -12,7 +12,6 @@
           android:orientation="vertical"
           tools:context=".fragment.DownloadFragment">
           <android.support.v7.widget.RecyclerView
-              android:paddingTop="@dimen/status_bar_height"
               android:id="@+id/recyclerView"
               android:layout_width="match_parent"
               android:layout_height="match_parent"/>
