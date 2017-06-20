@@ -7,7 +7,7 @@
     <!-- 连接超时，读取超时等 -->
     <string name="Connect_Error_Hint">网络连接超时，请检查您的网络状态！</string>
     <!-- 解析Gso出错，或者类型转换出错  ps：当然你不能跟用户这么说 所以 -->
-    <string name="Parse_Error_Hint">未能请求到数据，攻城狮正在修复</string>
+    <string name="Parse_Error_Hint">未能请求到数据，攻城狮正在修复！</string>
     <!-- 其他，没有统一处理的错误 -->
     <string name="Other_Error_hint">哎呀故障了，攻城狮正在修复！</string>
 </resources>
