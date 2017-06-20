@@ -47,17 +47,28 @@ Application初始化工作
 ``` python
 //初始化网络请求
 RetrofitClient.init(this)
-	.setDebug(true)
-	.setBaseUrl(IConstantPool.sCommonUrl)
-	.setApplictionId(BuildConfig.APPLICATION_ID)      //7.0安装apk
-     /** 以下都是按需设置 */
+    .setDebug(true)              //是否输出调试日志
+    .setBaseUrl(IConstantPool.sCommonUrl)
+    .setApplictionId(BuildConfig.APPLICATION_ID)
+    /** 以下都是按需设置 */
     .setDownloadsQueueCount(5)                 //下载最大数量
     .setDbName("net_buffer_db")                //数据库表名
     .setConnectionTimeout(6)                   //普通请求连接超时
     .setReadTimeout(6)                         //普通请求读取超时
-    .setDownConnectionTime(6)                  //下载连接超时 6秒
-    .setNetBufferTime(60)                      //有网络的情况下缓存 60    
-    .setNoNetBufferTime(24 * 60 * 60 * 7)      //无网络的时候，缓存时间
+    .setDownConnectionTime(6)                  //下载连接超时   6秒
+    .setNetBufferTime(60)                      //有网络的情况下缓存  60秒
+    .setNoNetBufferTime(24 * 60 * 60 * 7)      //无网络的时候，缓存
+    /** 头部参数 */
+    .setNetRequestParamsListener(new NetRequestParamsListener() {
+        @Override
+        public HashMap<String, String> getHeaderParams() {
+            //需要请传,不需要返回 null
+    //                        return null;
+            HashMap<String, String> map = new HashMap<>();
+            map.put("userId","2745329043");
+            return map;
+        }
+    })
     /** 设置完，记得Buid */
     .build();
 ```
