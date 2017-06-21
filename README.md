@@ -50,7 +50,7 @@ RetrofitClient.init(this)
     .setDebug(true)              //是否输出调试日志
     .setBaseUrl(IConstantPool.sCommonUrl)
     //这个是你主工程 也就是app(引入主项目) 里面指定的 build.gradle 里的applicationId 
-    //新手们，可不要弄错了。主要是7.0权限问题 ，安装apk 时候需要用到
+    //网友们可不要弄错了。主要是7.0权限问题 ，安装apk 时候需要用到
     .setApplictionId(BuildConfig.APPLICATION_ID)
     /** 以下都是按需设置 */
     .setDownloadsQueueCount(5)                 //下载最大数量
