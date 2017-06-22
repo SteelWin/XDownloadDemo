@@ -19,6 +19,7 @@ import io.reactivex.disposables.Disposable;
  * ps:为什么继承：AutoLayoutActivity
  * 使用了 适配终结者，有兴趣的可以看下，如果不需要。基础其他也一样
  * 本例主要是回收资源功能
+ * 因为使用了 DataBinding 如果你不熟悉，把释放资源的  复制到自己的 BaseActivity就好。继承NetBase
  */
 public abstract class BaseActivity<T extends ViewDataBinding> extends AutoLayoutActivity implements IBase<T>,NetBase{
     public T mBinding;
@@ -33,6 +34,8 @@ public abstract class BaseActivity<T extends ViewDataBinding> extends AutoLayout
         initView(savedInstanceState);
     }
 
+
+    /** 在自己的BaseActivity中 抄以下代码，并集成 NetBase */
     @Override
     protected void onDestroy() {
         super.onDestroy();

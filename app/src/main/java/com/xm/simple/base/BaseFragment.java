@@ -21,6 +21,8 @@ import io.reactivex.disposables.Disposable;
  * 功能:
  * 作者：小民
  * 创建时间：2017/5/26
+ * 本例主要是回收资源功能
+ * 因为使用了 DataBinding 如果你不熟悉，把释放资源的  复制到自己的 BaseActivity就好。继承NetBase
  */
 public abstract class BaseFragment<T extends ViewDataBinding>  extends Fragment implements IBase<T>,NetBase {
     public T mBinding;
@@ -38,7 +40,7 @@ public abstract class BaseFragment<T extends ViewDataBinding>  extends Fragment 
         return mBinding.getRoot();
     }
 
-    /** 垃圾回收 */
+    /** 在自己的BaseActivity中 抄以下代码，并集成 NetBase */
     @Override
     public void onDestroy() {
         super.onDestroy();
@@ -49,6 +51,7 @@ public abstract class BaseFragment<T extends ViewDataBinding>  extends Fragment 
         mBinding = null;
 
     }
+
     /** 网络请求 */
     @Override
     public boolean addRequestQueue(Disposable disposable) {

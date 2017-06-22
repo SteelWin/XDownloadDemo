@@ -34,6 +34,8 @@ public class App extends Application {
         RetrofitClient.init(this)
                 .setDebug(true)              //是否输出调试日志
                 .setBaseUrl(IConstantPool.sCommonUrl)
+                // 网友们可不要弄错了。主要是 7.0 权限问题 ，安装 apk 时候需要用到
+                // 是 主工程的 BuildConfig
                 .setApplictionId(BuildConfig.APPLICATION_ID)
                 /** 以下都是按需设置 */
                 .setDownloadsQueueCount(5)                 //下载最大数量
@@ -48,9 +50,9 @@ public class App extends Application {
                     @Override
                     public HashMap<String, String> getHeaderParams() {
                         //需要请传,不需要返回 null
-//                        return null;
+                        //                        return null;
                         HashMap<String, String> map = new HashMap<>();
-                        map.put("userId","2745329043");
+                        map.put("userId", "2745329043");
                         return map;
                     }
                 })
@@ -58,8 +60,10 @@ public class App extends Application {
                 .build();
     }
 
-    /** 方便其他地方调用 */
-    public static App getInstance(){
+    /**
+     * 方便其他地方调用
+     */
+    public static App getInstance() {
         return application;
     }
 
